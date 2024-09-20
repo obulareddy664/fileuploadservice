@@ -12,7 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.file.upload.entity.File;
 import com.file.upload.entity.RecordEntity;
 import com.file.upload.entity.RecordLogs;
-import com.file.upload.model.Record;
+import com.file.upload.model.Product;
 import com.file.upload.repository.FileRepository;
 import com.file.upload.repository.RecordEntityRepository;
 import com.file.upload.repository.RecordsLogsEntity;
@@ -33,13 +33,13 @@ public class UploadService {
 
 	public File insertFile(MultipartFile file) {
 		File fi = new File();
-		fi.setName(file.getName());
+		fi.setName(file.getOriginalFilename());
 		fi.setCreatedTime(LocalDateTime.now());
 
 		File fileData = fileRepository.save(fi);
 		try {
 
-			List<Record> list = ExcelConverterUtility.convertToModel(file);
+			List<Product> list = ExcelConverterUtility.convertToModel(file);
 
 			List<RecordEntity> validRecords = new ArrayList<>();
 

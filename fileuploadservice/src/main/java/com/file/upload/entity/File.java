@@ -12,7 +12,7 @@ import jakarta.persistence.Id;
 public class File {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private BigInteger id;
 	
 	private String name;

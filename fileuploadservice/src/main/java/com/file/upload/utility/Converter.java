@@ -5,11 +5,11 @@ import java.time.LocalDateTime;
 
 import com.file.upload.entity.RecordEntity;
 import com.file.upload.entity.RecordLogs;
-import com.file.upload.model.Record;
+import com.file.upload.model.Product;
 
 public class Converter {
 
-	public static RecordEntity convertModelEntity(Record record,BigInteger id) {
+	public static RecordEntity convertModelEntity(Product record,BigInteger id) {
 		RecordEntity re=new RecordEntity();
 		re.setName(record.getName());
 		re.setConversionFactor(record.getConversionFactor());
@@ -20,7 +20,7 @@ public class Converter {
 		return re;
 	}
 	
-	public static String recordValidate(Record record) {
+	public static String recordValidate(Product record) {
 		String name = record.getName();
 		String message = "";
 
@@ -32,7 +32,7 @@ public class Converter {
 
 	}
 	
-	public static RecordLogs convertToRecordLogs(Record record, String message,String status,BigInteger id) {
+	public static RecordLogs convertToRecordLogs(Product record, String message,String status,BigInteger id) {
 
 		RecordLogs rl = new RecordLogs();
 

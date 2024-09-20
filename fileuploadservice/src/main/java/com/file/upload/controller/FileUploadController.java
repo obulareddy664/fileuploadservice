@@ -15,7 +15,7 @@ import com.file.upload.entity.File;
 import com.file.upload.service.UploadService;
 
 @RestController
-public class ExcelController {
+public class FileUploadController {
 
 	@Autowired
 	private UploadService uploadService;

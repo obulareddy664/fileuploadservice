@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.file.upload.entity.RecordEntity;
-import com.file.upload.model.Record;
+import com.file.upload.model.Product;
 import com.poiji.bind.Poiji;
 import com.poiji.exception.PoijiExcelType;
 
@@ -15,9 +15,9 @@ import com.poiji.exception.PoijiExcelType;
 public class ExcelConverterUtility {
 
 	
-	public  static List<Record> convertToModel(MultipartFile multipartFile) throws IOException {
+	public  static List<Product> convertToModel(MultipartFile multipartFile) throws IOException {
 		
-		return Poiji.fromExcel(multipartFile.getInputStream(),PoijiExcelType.XLSX, Record.class);
+		return Poiji.fromExcel(multipartFile.getInputStream(),PoijiExcelType.XLSX, Product.class);
 	}
 	
 	

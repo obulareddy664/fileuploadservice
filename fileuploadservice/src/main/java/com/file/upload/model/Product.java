@@ -2,7 +2,7 @@ package com.file.upload.model;
 
 import com.poiji.annotation.ExcelCellName;
 
-public class Record {
+public class Product {
 
 	@ExcelCellName("name")
 	private String name;
@@ -13,7 +13,7 @@ public class Record {
 	@ExcelCellName("conversionFactor")
 	private Double conversionFactor;
 
-	public Record(String name, String competetior, Double conversionFactor) {
+	public Product(String name, String competetior, Double conversionFactor) {
 		super();
 		this.name = name;
 		this.competetior = competetior;
@@ -44,7 +44,7 @@ public class Record {
 		this.conversionFactor = conversionFactor;
 	}
 
-	public Record() {
+	public Product() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
