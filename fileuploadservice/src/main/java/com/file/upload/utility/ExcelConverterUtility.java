@@ -14,6 +14,7 @@ import com.poiji.exception.PoijiExcelType;
 
 public class ExcelConverterUtility {
 
+	private ExcelConverterUtility(){}
 	
 	public  static List<Product> convertToModel(MultipartFile multipartFile) throws IOException {
 		

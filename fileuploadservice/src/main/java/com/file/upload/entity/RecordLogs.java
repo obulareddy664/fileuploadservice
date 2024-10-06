@@ -25,90 +25,96 @@ public class RecordLogs {
 
 	private String message;
 	
-	private BigInteger recordId;
-	
+	private BigInteger fileId;
+
 	private LocalDateTime createdTime;
 
-	public LocalDateTime getCreatedTime() {
-		return createdTime;
-	}
+	private LocalDateTime updatedTime;
 
-	public void setCreatedTime(LocalDateTime createdTime) {
+	public RecordLogs(BigInteger id, String name, String competetior, Double conversionFactor, String status, String message, BigInteger fileId, LocalDateTime createdTime, LocalDateTime updatedTime) {
+		this.id = id;
+		this.name = name;
+		this.competetior = competetior;
+		this.conversionFactor = conversionFactor;
+		this.status = status;
+		this.message = message;
+		this.fileId = fileId;
 		this.createdTime = createdTime;
+		this.updatedTime = updatedTime;
 	}
 
 	public BigInteger getId() {
 		return id;
 	}
 
-	public BigInteger getRecordId() {
-		return recordId;
-	}
-
-	public void setRecordId(BigInteger recordId) {
-		this.recordId = recordId;
-	}
-
-	public void setId(BigInteger id) {
-		this.id = id;
-	}
-
 	public String getName() {
 		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public String getCompetetior() {
 		return competetior;
 	}
 
-	public void setCompetetior(String competetior) {
-		this.competetior = competetior;
-	}
-
 	public Double getConversionFactor() {
 		return conversionFactor;
-	}
-
-	public void setConversionFactor(Double conversionFactor) {
-		this.conversionFactor = conversionFactor;
 	}
 
 	public String getStatus() {
 		return status;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
 	public String getMessage() {
 		return message;
+	}
+
+	public BigInteger getFileId() {
+		return fileId;
+	}
+
+	public LocalDateTime getCreatedTime() {
+		return createdTime;
+	}
+
+	public LocalDateTime getUpdatedTime() {
+		return updatedTime;
+	}
+
+	public RecordLogs() {
+	}
+
+	public void setId(BigInteger id) {
+		this.id = id;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setCompetetior(String competetior) {
+		this.competetior = competetior;
+	}
+
+	public void setConversionFactor(Double conversionFactor) {
+		this.conversionFactor = conversionFactor;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	public void setMessage(String message) {
 		this.message = message;
 	}
 
-	public RecordLogs(BigInteger id, String name, String competetior, Double conversionFactor, String status,
-			String message) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.competetior = competetior;
-		this.conversionFactor = conversionFactor;
-		this.status = status;
-		this.message = message;
+	public void setFileId(BigInteger fileId) {
+		this.fileId = fileId;
 	}
 
-	public RecordLogs() {
-		// TODO Auto-generated constructor stub
+	public void setCreatedTime(LocalDateTime createdTime) {
+		this.createdTime = createdTime;
 	}
-	
-	
-	
-	
+
+	public void setUpdatedTime(LocalDateTime updatedTime) {
+		this.updatedTime = updatedTime;
+	}
 }

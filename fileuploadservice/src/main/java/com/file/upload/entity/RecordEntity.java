@@ -21,7 +21,7 @@ public class RecordEntity {
 	
 	private Double conversionFactor;
 	
-	private BigInteger recordId;
+	private BigInteger fileId;
 	
 	private LocalDateTime createdTime;
 
@@ -41,12 +41,12 @@ public class RecordEntity {
 		this.id = id;
 	}
 
-	public BigInteger getRecordId() {
-		return recordId;
+	public BigInteger getFileId() {
+		return fileId;
 	}
 
-	public void setRecordId(BigInteger recordId) {
-		this.recordId = recordId;
+	public void setFileId(BigInteger fileId) {
+		this.fileId = fileId;
 	}
 
 	public String getName() {

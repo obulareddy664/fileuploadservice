@@ -3,6 +3,7 @@ package com.file.upload.utility;
 import java.math.BigInteger;
 import java.time.LocalDateTime;
 
+import com.file.upload.constant.RecordErrorMsg;
 import com.file.upload.entity.RecordEntity;
 import com.file.upload.entity.RecordLogs;
 import com.file.upload.model.Product;
@@ -15,7 +16,7 @@ public class Converter {
 		re.setConversionFactor(record.getConversionFactor());
 		re.setCompetetior(record.getCompetetior());
 		re.setCreatedTime(LocalDateTime.now());
-		re.setRecordId(id);
+		re.setFileId(id);
 		
 		return re;
 	}
@@ -23,13 +24,26 @@ public class Converter {
 	public static String recordValidate(Product record) {
 		String name = record.getName();
 		String message = "";
-
+		String competetior=record.getCompetetior();
+		Double conversionFactor=record.getConversionFactor();
 		if (name == null || name.isEmpty()) {
-			message = "name must be provided";
+		return	message = RecordErrorMsg.NAME;
+		}else if((competetior== null || competetior.isEmpty()) || !(competetior.equals("AMZ") || competetior.equals("WMT"))){
+				return message = RecordErrorMsg.COMPETETIOR;
+		} else if (conversionFactor<0) {
+		return	message=RecordErrorMsg.CONVERSASTION_FACTOR;
 		}
-
 		return message;
 
+	}
+
+	public static void main(String[] args) {
+		Product product=new Product();
+		product.setName("data");
+		product.setCompetetior("AMZ");
+
+
+		System.out.println(recordValidate(product));
 	}
 	
 	public static RecordLogs convertToRecordLogs(Product record, String message,String status,BigInteger id) {
@@ -42,7 +56,8 @@ public class Converter {
 		rl.setStatus(status);
 		rl.setMessage(message);
 		rl.setCreatedTime(LocalDateTime.now());
-		rl.setRecordId(id);
+		rl.setFileId(id);
+		rl.setUpdatedTime(LocalDateTime.now());
 		return rl;
 	}
 }
