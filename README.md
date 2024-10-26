@@ -1,6 +1,6 @@
 # fileuploadservice
 
-Steps to Run the Apllication
+please follow Steps to Run the Apllication
 
 1.mvn clean install
 2.Download the product.xlsx located under fileuploadservice
