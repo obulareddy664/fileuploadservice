@@ -7,12 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.file.upload.constant.RecordErrorMsg;
+import com.file.upload.entity.File;
+import com.file.upload.exception.FileNameException;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.file.upload.entity.File;
+
 import com.file.upload.entity.RecordEntity;
 import com.file.upload.entity.RecordLogs;
 import com.file.upload.model.Product;
@@ -35,14 +37,26 @@ public class UploadService {
 	private FileRepository fileRepository;
 
 	public File insertFile(MultipartFile file) {
-		File fileData = saveFile(file);
-		try {
-			saveValidAndInvalidRecords(file, fileData);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		if(isFileName(file.getOriginalFilename())) {
+			File fileData = saveFile(file);
+			try {
+				saveValidAndInvalidRecords(file, fileData);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 
-		return fileData;
+			return fileData;
+		}
+		return null;
+	}
+
+
+	public boolean isFileName(String name){
+	boolean fileName= fileRepository.existsFileByName(name);
+	if(fileName){
+     throw  new FileNameException(name);
+	}
+      return true;
 	}
 
 	private void saveValidAndInvalidRecords(MultipartFile file, File fileData) throws IOException {
