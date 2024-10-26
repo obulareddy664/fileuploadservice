@@ -10,13 +10,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Product {
 
-	@ExcelCellName("name")
-	private String name;
-	
-	@ExcelCellName("competetior")
-	private String competetior;
-	
-	@ExcelCellName("conversionFactor")
-	private Double conversionFactor;
+    @ExcelCellName("name")
+    private String name;
+
+    @ExcelCellName("competetior")
+    private String competetior;
+
+    @ExcelCellName("conversionFactor")
+    private Double conversionFactor;
 
 }

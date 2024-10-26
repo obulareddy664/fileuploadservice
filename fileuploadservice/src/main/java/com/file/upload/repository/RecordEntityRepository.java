@@ -1,13 +1,12 @@
 package com.file.upload.repository;
 
-import java.math.BigInteger;
-
+import com.file.upload.entity.RecordEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.file.upload.entity.RecordEntity;
+import java.math.BigInteger;
 
 @Repository
-public interface RecordEntityRepository extends JpaRepository<RecordEntity, BigInteger>{
+public interface RecordEntityRepository extends JpaRepository<RecordEntity, BigInteger> {
 
 }

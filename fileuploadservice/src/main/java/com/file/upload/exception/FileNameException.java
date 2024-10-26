@@ -7,9 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class FileNameException extends RuntimeException{
+public class FileNameException extends RuntimeException {
 
     private String message;
-
 
 }

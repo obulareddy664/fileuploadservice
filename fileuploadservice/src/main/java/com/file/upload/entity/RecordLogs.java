@@ -1,8 +1,5 @@
 package com.file.upload.entity;
 
-import java.math.BigInteger;
-import java.time.LocalDateTime;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,30 +8,33 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigInteger;
+import java.time.LocalDateTime;
+
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class RecordLogs {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private BigInteger id;
-	
-	private String name;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private BigInteger id;
 
-	private String competetior;
+    private String name;
 
-	private Double conversionFactor;
-	
-	private String status;
+    private String competetior;
 
-	private String message;
-	
-	private BigInteger fileId;
+    private Double conversionFactor;
 
-	private LocalDateTime createdTime;
+    private String status;
 
-	private LocalDateTime updatedTime;
+    private String message;
+
+    private BigInteger fileId;
+
+    private LocalDateTime createdTime;
+
+    private LocalDateTime updatedTime;
 
 }
