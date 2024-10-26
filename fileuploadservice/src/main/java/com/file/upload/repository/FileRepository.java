@@ -1,14 +1,13 @@
 package com.file.upload.repository;
 
-import java.math.BigInteger;
-
+import com.file.upload.entity.File;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.file.upload.entity.File;
+import java.math.BigInteger;
 
 @Repository
-public interface FileRepository extends JpaRepository<File, BigInteger>{
+public interface FileRepository extends JpaRepository<File, BigInteger> {
 
     boolean existsFileByName(String name);
 }
