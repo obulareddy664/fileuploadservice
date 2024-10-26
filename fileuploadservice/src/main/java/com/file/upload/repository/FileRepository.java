@@ -10,4 +10,5 @@ import com.file.upload.entity.File;
 @Repository
 public interface FileRepository extends JpaRepository<File, BigInteger>{
 
+    boolean existsFileByName(String name);
 }
