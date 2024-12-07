@@ -34,7 +34,7 @@ public class UploadService {
     @Autowired
     private FileRepository fileRepository;
 
-    public File insertFile(MultipartFile file) {
+    public File insertFile(MultipartFile file) throws IOException {
         if (isFileName(file.getOriginalFilename())) {
             File fileData = saveFile(file);
             try {
@@ -83,10 +83,11 @@ public class UploadService {
         }
     }
 
-    private @NotNull File saveFile(MultipartFile file) {
+    private @NotNull File saveFile(MultipartFile file) throws IOException {
         File fi = new File();
         fi.setName(file.getOriginalFilename());
         fi.setCreatedTime(LocalDateTime.now());
+        fi.setContent(file.getBytes());
         return fileRepository.save(fi);
     }
 

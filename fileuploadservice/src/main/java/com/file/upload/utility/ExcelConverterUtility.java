@@ -20,6 +20,5 @@ public class ExcelConverterUtility {
 		
 		return Poiji.fromExcel(multipartFile.getInputStream(),PoijiExcelType.XLSX, Product.class);
 	}
-	
-	
+
 }
