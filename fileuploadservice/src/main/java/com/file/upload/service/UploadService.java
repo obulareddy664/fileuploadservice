@@ -1,5 +1,6 @@
 package com.file.upload.service;
 
+import com.file.upload.config.KafkaProducer;
 import com.file.upload.constant.RecordErrorMsg;
 import com.file.upload.entity.File;
 import com.file.upload.entity.RecordEntity;
@@ -33,6 +34,9 @@ public class UploadService {
 
     @Autowired
     private FileRepository fileRepository;
+
+    @Autowired
+    private KafkaProducer kafkaProducer;
 
     public File insertFile(MultipartFile file) throws IOException {
         if (isFileName(file.getOriginalFilename())) {
@@ -72,6 +76,10 @@ public class UploadService {
         });
 
         saveValidAndInvalidRecordList(validRecords, validAndInvalidRecords);
+
+        validRecords.forEach(record->{
+        kafkaProducer.sendMessage(record);
+        });
     }
 
     private void saveValidAndInvalidRecordList(List<RecordEntity> validRecords, List<RecordLogs> validAndInvalidRecords) {

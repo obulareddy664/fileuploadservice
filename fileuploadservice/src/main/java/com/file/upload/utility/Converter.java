@@ -15,7 +15,6 @@ public class Converter {
 		re.setName(record.getName());
 		re.setConversionFactor(record.getConversionFactor());
 		re.setCompetetior(record.getCompetetior());
-		re.setCreatedTime(LocalDateTime.now());
 		re.setFileId(id);
 		
 		return re;

@@ -29,6 +29,4 @@ public class RecordEntity {
 
     private BigInteger fileId;
 
-    private LocalDateTime createdTime;
-
 }
