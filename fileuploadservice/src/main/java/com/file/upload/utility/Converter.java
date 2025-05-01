@@ -15,6 +15,7 @@ public class Converter {
 		re.setName(record.getName());
 		re.setConversionFactor(record.getConversionFactor());
 		re.setCompetetior(record.getCompetetior());
+		re.setPrice(record.getPrice());
 		re.setFileId(id);
 		
 		return re;

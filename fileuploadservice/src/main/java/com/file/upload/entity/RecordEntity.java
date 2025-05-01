@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.math.BigInteger;
 import java.time.LocalDateTime;
@@ -15,6 +16,7 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class RecordEntity {
 
     @Id
@@ -28,5 +30,7 @@ public class RecordEntity {
     private Double conversionFactor;
 
     private BigInteger fileId;
+
+    private Double price;
 
 }

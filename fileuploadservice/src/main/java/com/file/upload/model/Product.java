@@ -19,4 +19,7 @@ public class Product {
     @ExcelCellName("conversionFactor")
     private Double conversionFactor;
 
+    @ExcelCellName("price")
+    private Double price;
+
 }

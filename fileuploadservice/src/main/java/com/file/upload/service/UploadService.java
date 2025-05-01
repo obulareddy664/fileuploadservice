@@ -1,6 +1,6 @@
 package com.file.upload.service;
 
-import com.file.upload.config.KafkaProducer;
+
 import com.file.upload.constant.RecordErrorMsg;
 import com.file.upload.entity.File;
 import com.file.upload.entity.RecordEntity;
@@ -12,7 +12,6 @@ import com.file.upload.repository.RecordEntityRepository;
 import com.file.upload.repository.RecordLogsRepository;
 import com.file.upload.utility.Converter;
 import com.file.upload.utility.ExcelConverterUtility;
-import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -36,7 +35,7 @@ public class UploadService {
     private FileRepository fileRepository;
 
     @Autowired
-    private KafkaProducer kafkaProducer;
+    private KafkaProducerService kafkaProducerService;
 
     public File insertFile(MultipartFile file) throws IOException {
         if (isFileName(file.getOriginalFilename())) {
@@ -78,7 +77,7 @@ public class UploadService {
         saveValidAndInvalidRecordList(validRecords, validAndInvalidRecords);
 
         validRecords.forEach(record->{
-        kafkaProducer.sendMessage(record);
+        kafkaProducerService.sendMessage(record);
         });
     }
 
@@ -91,7 +90,7 @@ public class UploadService {
         }
     }
 
-    private @NotNull File saveFile(MultipartFile file) throws IOException {
+    private  File saveFile(MultipartFile file) throws IOException {
         File fi = new File();
         fi.setName(file.getOriginalFilename());
         fi.setCreatedTime(LocalDateTime.now());

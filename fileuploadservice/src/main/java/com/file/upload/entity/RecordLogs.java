@@ -37,4 +37,6 @@ public class RecordLogs {
 
     private LocalDateTime updatedTime;
 
+    private Double price;
+
 }
